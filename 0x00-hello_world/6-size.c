@@ -1,4 +1,4 @@
-#includes <stdio.h>
+#include <stdio.h>
 /**
  * main -prints size of input
  * Return: 0 is successful
