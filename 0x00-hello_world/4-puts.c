@@ -1,7 +1,8 @@
 #include <stdio.h>
 /**
  * C program to print a string
- * main- This function prints a string of characters
+ *
+ * int main- This function prints a string of characters
  * puts - prints the string and returns new line
  * Return - Description of the returned value
  */
