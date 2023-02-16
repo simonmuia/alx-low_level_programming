@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
  * main -prints size of input
+ * types
  * Return: 0 is successful
  */
 int main(void)
