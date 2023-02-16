@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-/*Define main function */
-int main(void)
+int main(void) /* Define main Function*/
 {
 
 	puts("\"Programming is like building a multilingual puzzle");
