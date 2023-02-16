@@ -1,6 +1,8 @@
 #include <stdio.h>
-
-int main(void) /* Define main Function*/
+/*
+ * This function prints a string of characters
+ */
+int main(void)
 {
 
 	puts("\"Programming is like building a multilingual puzzle");
