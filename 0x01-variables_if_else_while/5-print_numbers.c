@@ -11,9 +11,7 @@ int main(void)
 
 	for (n = 0; n < 10; n++)
 	{
-		int base_10 = log10(n);
-
-		printf(base_10);
+		put(log10(n));
 	}
 	printf('\n');
 	return (0);
