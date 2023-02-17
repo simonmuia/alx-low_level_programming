@@ -9,17 +9,17 @@ int main(void)
 {
 	int fnum, snum;
 
-	for (fnum = 0; fnum < 9; fnum++)
+	for (fnum = 0; fnum < 99; fnum++)
 	{
-		for (snum = fnum + 1; snum <= 9; snum++)
+		for (snum = fnum + 1; snum <= 99; snum++)
 		{
-			if (fnum != 8 || snum != 9)
+			putchar(fnum / 10 + '0');
+			putchar(fnum % 10 + '0');
+			putchar(' ');
+			putchar(fnum / 10 + '0');
+			putchar(snum % 10 + '0');
+			if (fnum != 98 || snum != 99)
 			{
-				putchar(fnum + '0');
-				putchar(snum + '0');
-				putchar(' ');
-				putchar(fnum + '0');
-				putchar(snum + '0');
 				putchar(',');
 				putchar(' ');
 			}
