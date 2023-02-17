@@ -11,7 +11,11 @@ int main(void)
 
 	for (num = 0; num < 10; num++)
 	{
-		putchar("%d", char(num));
+		if(num % 10 != 0)
+		{
+			putchar(num % 10);
+			printnumber(num -(num % 10) / 10);
+		}
 	}
 	putchar("\n");
 	return (0);
