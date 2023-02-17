@@ -18,7 +18,7 @@ int main(void)
 				putchar(fnum + '0');
 				putchar(snum + '0');
 				putchar(tnum + '0');
-				if (fnum != 8 || snum != 9 || tnum != 9)
+				if (fnum != 7 && snum != 8 && tnum != 9)
 				{
 					putchar(',');
 					putchar(' ');
