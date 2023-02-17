@@ -31,5 +31,6 @@ int main(void)
 		}
 		fnum++;
 	}
+	putchar('\n');
 	return (0);
 }
