@@ -13,7 +13,7 @@ int main(void)
 	{
 		for (snum = fnum + 1; snum <= 9; snum++)
 		{
-			for (tnum = fnum + 1; tnum <= 9; tnum++)
+			for (tnum = snum + 1; tnum <= 9; tnum++)
 			{
 				putchar(fnum + '0');
 				putchar(snum + '0');
