@@ -14,15 +14,18 @@ int main(void)
 		snum = fnum + 1;
 		while (snum <= 99)
 		{
-			putchar((fnum / 10) + '0');
-			putchar((fnum % 10) + '0');
-			putchar(' ');
-			putchar((snum / 10) + '0');
-			putchar((snum % 10) + '0');
-			if (fnum != 98 || snum != 99)
+			if (fnum < snum)
 			{
-				putchar(',');
+				putchar((fnum / 10) + '0');
+				putchar((fnum % 10) + '0');
 				putchar(' ');
+				putchar((snum / 10) + '0');
+				putchar((snum % 10) + '0');
+				if (fnum != 98 || snum != 99)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 			snum++;
 		}
