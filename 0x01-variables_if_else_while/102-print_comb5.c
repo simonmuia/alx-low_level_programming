@@ -11,7 +11,7 @@ int main(void)
 
 	while (fnum <= 99)
 	{
-		snum = fnum + 1;
+		snum = 0;
 		while (snum <= 99)
 		{
 			if (fnum < snum)
