@@ -9,22 +9,24 @@ int main(void)
 {
 	int fnum, snum;
 
-	for (fnum = 0; fnum < 99; fnum++)
+	while (fnum <= 99)
 	{
-		for (snum = fnum + 1; snum <= 99; snum++)
+		snum = fnum + 1;
+		while (snum <= 99)
 		{
-			putchar(fnum / 10 + '0');
-			putchar(fnum % 10 + '0');
+			putchar((fnum / 10) + '0');
+			putchar((fnum % 10) + '0');
 			putchar(' ');
-			putchar(fnum / 10 + '0');
-			putchar(snum % 10 + '0');
-			if (fnum != 98 || snum != 99)
+			putchar((snum / 10) + '0');
+			putchar((snum % 10) + '0');
+			if (i != 98 || j != 99)
 			{
 				putchar(',');
 				putchar(' ');
 			}
+			snum++;
 		}
+		fnum++;
 	}
-	putchar('\n');
 	return (0);
 }
