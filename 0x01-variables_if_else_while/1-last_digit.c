@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
+
 /**
  * main - entry point
  * Return: 0 successful always
@@ -9,7 +11,7 @@ int main(void)
 	int n;
 
 	srand(time(0));
-	n = rand();
+	n = rand() - RAND_MAX / 2;
 	int last_digit = n % 10;
 
 	if (last_digit > 5)
