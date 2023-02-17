@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 /**
  * main - Entry point
  * Return: 0 -  (Successful always)
@@ -10,7 +10,8 @@ int main(void)
 {	/* Define random n */
 	int n;
 
-	n = rand(n);
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 	/* check if the number is >0, < 0 or is zero */
 	if (n > 0)
 	{
