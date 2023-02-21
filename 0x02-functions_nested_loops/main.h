@@ -110,7 +110,7 @@ int print_sign(int n)
 
 int _abs(int num)
 {
-	abs(num);
+	putchar(abs(num));
 	return (0);
 }
 
@@ -133,7 +133,7 @@ int print_last_digit(int last_digit)
 
 void jack_bauer(void)
 {
-	int hours minutes;
+	int hours, minutes;
 	
 	for (hours = 0; hours <= 23; hours++)
 	{
@@ -176,7 +176,7 @@ void jack_bauer(void)
 
 void times_table(void)
 {
-	int number times;
+	int number, times;
 
 	for (times = 0; times <= 9; times++)
 	{
