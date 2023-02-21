@@ -9,16 +9,17 @@
 
 int main(void)
 {
-	int fib;
-	int num1 = 1, num2 = 2;
-	int num_n = num1 + num2;
+	int count;
+	long int num1 = 1, num2 = 2, fib;
 
-	for (fib = 3; fib <= 50; ++fib)
+	printf("%ld, %ld", num1, num2);
+	for (count = 0; count < 48; count++)
 	{
-		printf("%d, ", num_n);
+		fib = num1 + num2;
+		printf(", %ld", fib);
 		num1 = num2;
-		num2 = num_n;
-		num_n = num1 + num2;
+		num2 = fib;
 	}
+	putchar('\n');
 	return (0);
 }
