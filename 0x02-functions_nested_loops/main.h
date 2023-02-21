@@ -104,24 +104,24 @@ int print_sign(int n)
 
 /**
  * _abs - compute absolute value of integer
+ *@num: input variable
  * Return: 0 Always
  */
 
-int _abs(int)
+int _abs(int num)
 {
-	int num;
 	abs(num);
 	return (0);
 }
 
 /**
  * print_last_digit - returns last digit of provided number
+ * @last_digit - input variable
  * Return: Always 0.
  */
 
-int print_last_digit(int)
+int print_last_digit(int last_digit)
 {
-	int last_digit;
 	putchar(last_digit % 10);
 	return (0);
 }
