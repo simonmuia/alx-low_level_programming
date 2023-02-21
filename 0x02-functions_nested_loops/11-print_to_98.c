@@ -30,4 +30,4 @@ void print_to_98(int n)
 			number++;
 		}
 	}
-	_putchar("\n");
+	putchar('\n');
