@@ -1,24 +1,12 @@
 #include <stdio.h>
 
 /**
- * main - check the code
- *
- * Return: Always 0.
- */
-
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
-
-/**
  * print_alphabet - prints alphabets
  *
  * Return: Always 0.
  */
 
-int print_alphabet(void)
+void print_alphabet(void)
 {
 	char c;
 
@@ -27,5 +15,17 @@ int print_alphabet(void)
 		putchar(c);
 	}
 	putchar('\n');
+	return (0);
+}
+
+/**
+ * main - check the code.
+ *
+ * Return: Always 0.
+ */
+
+int main(void)
+{
+	print_alphabet();
 	return (0);
 }
