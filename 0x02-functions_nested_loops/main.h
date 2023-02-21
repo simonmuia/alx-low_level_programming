@@ -3,25 +3,6 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <unistd.h>
-
-/**
- * print _putchar - custom library.
- *
- * Return: on success 1
- */
-void print_putchar(void)
-{
-	_putchar("_");
-	_putchar("p");
-	_putchar("u");
-	_putchar("t");
-	_putchar("c");
-	_putchar("h");
-	_putchar("a");
-	_putchar("r");
-	_putchar('\n');
-}
 
 /**
  * print_alphabet - prints lowercase alphabets
