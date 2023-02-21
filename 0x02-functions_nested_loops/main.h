@@ -1,3 +1,5 @@
+#ifndef main_h
+#define main_h
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -203,3 +205,5 @@ void times_table(void)
 		_putchar('\n');
 	}
 }
+
+#endif
