@@ -8,6 +8,6 @@
 
 int _abs(int num)
 {
-	_putchar(abs(num));
+	printf("%d \n", abs(num);
 	return (0);
 }
