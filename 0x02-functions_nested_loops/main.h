@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * _putchar - prints string "_putchar".
  *
  */
 
-void print_putchar(void)
+void _putchar(void)
 {
-	puts("_putchar");
+	write("_putchar");
 }
 
 /**
