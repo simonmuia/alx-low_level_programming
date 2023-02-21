@@ -12,6 +12,12 @@ int main(void)
 	return (0);
 }
 
+/**
+ * print_alphabet - prints alphabets
+ *
+ * Return: Always 0.
+ */
+
 int print_alphabet(void)
 {
 	char c;
@@ -19,7 +25,7 @@ int print_alphabet(void)
 	for (c = 'a'; c < 'z'; c++)
 	{
 		putchar(c);
-		putchar('\n');
 	}
+	putchar('\n');
 	return (0);
 }
