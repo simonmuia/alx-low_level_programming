@@ -1,43 +1,15 @@
-#include <stdio.h>
+#include "main.h"
 #include <ctype.h>
-
 /**
- * _isalpha - checks if char is alpha.
- * @c: Our input variable.
- *
- * Return: 1 if true and 0 if false.
+ * _isalpha - checks for alphabetic character
+ * @c: input variable.
+ * Return: 1 if true and 0 if otherwise.
  */
 
 int _isalpha(int c)
 {
 	if (isalpha(c))
-	{
 		return (1);
-	}
 	else
-	{
 		return (0);
-	}
-}
-
-/**
- * main - check the code.
- *
- * Return: Always 0.
- */
-
-int main(void)
-{
-	int r;
-
-	r = _isalpha('H');
-	putchar(r + '0');
-	r = _isalpha('o');
-	putchar(r + '0');
-	r = _isalpha(108);
-	putchar(r + '0');
-	r = _isalpha(';');
-	putchar(r + '0');
-	putchar('\n');
-	return (0);
 }
