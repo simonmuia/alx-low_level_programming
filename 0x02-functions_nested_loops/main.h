@@ -104,19 +104,18 @@ int print_sign(int n)
 
 /**
  * _abs - compute absolute value of integer
- * @int: value type.
  * Return: 0 Always
  */
 
 int _abs(int)
 {
-	abs(int);
+	int num;
+	abs(num);
 	return (0);
 }
 
 /**
  * print_last_digit - returns last digit of provided number
- * @int: variable type.
  * Return: Always 0.
  */
 
