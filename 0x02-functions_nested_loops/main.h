@@ -4,13 +4,19 @@
 #include <unistd.h>
 
 /**
- * _putchar - prints string "_putchar".
+ * _putchar - custom library.
  *
+ * Return: on success 1
  */
 
-void _putchar(void)
+int _putchar(char c)
 {
-	write("_putchar");
+	return(write(1, &c, 1));
+}
+
+void print_putchar(void)
+{
+	puts("_putchar");
 }
 
 /**
