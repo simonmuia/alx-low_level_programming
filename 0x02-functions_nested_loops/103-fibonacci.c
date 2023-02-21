@@ -25,4 +25,4 @@ int main(void)
 	}
 	printf("%ld\n", afn);
 	return (0);
-
+}
