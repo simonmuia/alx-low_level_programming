@@ -2,12 +2,16 @@
 #include <stdlib.h>
 /**
  * _abs - compute absolute value of integer
- *@num: input variable
+ *@n: input variable
  * Return: 0 Always
  */
 
 int _abs(int n)
 {
-	_putchar(abs(n));
+	if (n < 0)
+		_putchar(n + (n * 2));
+	else
+		_putchar(n);
+	putchar('\n');
 	return (0);
 }
