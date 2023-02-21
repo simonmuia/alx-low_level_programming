@@ -164,7 +164,6 @@ void jack_bauer(void)
 			}
 		}
 	}
-	return (0);
 }
 
 
@@ -194,5 +193,4 @@ void times_table(void)
 		}
 		putchar('\n');
 	}
-	return (0);
 }
