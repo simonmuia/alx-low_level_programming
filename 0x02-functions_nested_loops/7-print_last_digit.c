@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+
 /**
  * print_last_digit - returns last digit of provided number
  * @last_digit: input variable
@@ -7,5 +9,8 @@
 
 int print_last_digit(int last_digit)
 {
-	return(last_digit % 10);
+	int ab_digit = abs(last_digit);
+	last_digit = last_digit % 10;
+	return(last_digit);
+	
 }
