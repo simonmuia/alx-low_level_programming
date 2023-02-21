@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * print_to_98 - prints all natural numbers to 98
@@ -36,5 +37,5 @@ void print_to_98(int n)
 		}
 	}
 	else
-		_putchar(n);
+		return(n);
 }
