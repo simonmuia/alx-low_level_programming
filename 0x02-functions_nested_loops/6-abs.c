@@ -6,8 +6,9 @@
  * Return: 0 Always
  */
 
-int _abs(int num)
+int _abs(int)
 {
-	printf("%d \n", abs(num);
+	int n;
+	_putchar(abs(n);
 	return (0);
 }
