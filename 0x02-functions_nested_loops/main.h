@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-
+#include "_putchar.h"
 /**
  * print_alphabet - prints lowercase alphabets
  *
