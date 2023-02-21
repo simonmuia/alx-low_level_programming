@@ -9,7 +9,7 @@
 
 void print_putchar(void)
 {
-	printf("_putchar");
+	puts("_putchar");
 }
 
 /**
