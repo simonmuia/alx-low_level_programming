@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 /**
  * print _putchar - custom library.
@@ -24,9 +23,9 @@ void print_alphabet(void)
 
 	for (c = 'a'; c <= 'z'; c++)
 	{
-		putchar(c);
+		_putchar(c);
 	}
-	putchar('\n');
+	_putchar('\n');
 }
 
 /**
@@ -43,9 +42,9 @@ void print_alphabet_x10(void)
 	{
 		for (c = 'a'; c <= 'z'; c++)
 		{
-			putchar(c);
+			_putchar(c);
 		}
-		putchar('\n');
+		_putchar('\n');
 	}
 }
 
@@ -88,17 +87,17 @@ int print_sign(int n)
 {
 	if (n > 0)
 	{
-		putchar('+');
+		_putchar('+');
 		return (1);
 	}
 	else if (n == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return (0);
 	}
 	else
 	{
-		putchar('0');
+		_putchar('0');
 		return(-1);
 	}
 }
@@ -111,7 +110,7 @@ int print_sign(int n)
 
 int _abs(int num)
 {
-	putchar(abs(num));
+	_putchar(abs(num));
 	return (0);
 }
 
@@ -123,7 +122,7 @@ int _abs(int num)
 
 int print_last_digit(int last_digit)
 {
-	putchar(last_digit % 10);
+	_putchar(last_digit % 10);
 	return (0);
 }
 
@@ -140,27 +139,27 @@ void jack_bauer(void)
 	{
 		if (hours < 10)
 		{
-			putchar('0');
-			putchar(hours);
-			putchar (':');
+			_putchar('0');
+			_putchar(hours);
+			_putchar (':');
 		}
 		else
 		{
-			putchar(hours);
-			putchar(':');
+			_putchar(hours);
+			_putchar(':');
 
 			for (minutes = 0; minutes <= 59; minutes++)
 			{
 				if (minutes < 10)
 				{
-					putchar('0');
-					putchar(minutes);
-					putchar('\n');
+					_putchar('0');
+					_putchar(minutes);
+					_putchar('\n');
 				}
 				else
 				{
-					putchar(minutes);
-					putchar('\n');
+					_putchar(minutes);
+					_putchar('\n');
 				}
 			}
 		}
@@ -184,14 +183,14 @@ void times_table(void)
 		{
 			int result;
 			result = number * times;
-			putchar(' ');
-			putchar(result);
+			_putchar(' ');
+			_putchar(result);
 			if(number != 9)
 			{
-				putchar(',');
-				putchar(' ');
+				_putchar(',');
+				_putchar(' ');
 			}
 		}
-		putchar('\n');
+		_putchar('\n');
 	}
 }
