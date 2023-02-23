@@ -9,7 +9,7 @@
 int main(void)
 {
 	unsigned long int prinum = 612852475143;
-	int factor = 2;
+	int factor;
 
 	for (factor = 3; factor < 782849; factor = factor + 2)
 	{
