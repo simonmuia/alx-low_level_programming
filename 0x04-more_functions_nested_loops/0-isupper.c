@@ -2,8 +2,8 @@
 #include <ctype.h>
 
 /**
- * _isupper - checks is character is uppercase
- * @c: character variable
+ * _isupper - checks is character is uppercase.
+ * @c: character variable.
  * Return: 1 if c is uppercase and 0 if otherwise.
  */
 
