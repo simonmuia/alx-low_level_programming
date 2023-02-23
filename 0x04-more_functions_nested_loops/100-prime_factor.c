@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	long long prinum = 612852475143;
+	unsigned long int prinum = 612852475143;
 	int factor = 2;
 
 	while (factor * factor <= prinum)
