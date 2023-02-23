@@ -18,6 +18,6 @@ void print_triangle(int size)
 			_putchar(' ');
 		for (hash = 1; hash <= count; hash++)
 			_putchar('#');
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
