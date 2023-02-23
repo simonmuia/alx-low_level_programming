@@ -1,5 +1,4 @@
 #include "main.h"
-#include <ctype.h>
 
 /**
  * _isdigit - checks if the var provided is a digit
@@ -9,21 +8,12 @@
 
 int _isdigit(int c)
 {
-	for (c = 0; c < 10; c++)
+	if (c >= '0' && c <= '9')
 	{
-		if (isdigit(c))
-		{
-			_putchar(c);
-			_putchar(":");
-			_putchar(" ");
-			return (1);
-		}
-		else
-		{
-			_putchar(c);
-			_putchar(":");
-			_putchar(" ");
-			return (0);
-		}
+		return (1);
+	}
+	else
+	{
+		return (0);
 	}
 }
