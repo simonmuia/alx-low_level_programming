@@ -6,17 +6,18 @@
  *
  * Return: void
  */
-
 void print_square(int size)
 {
-	int height, width;
+	int i, j;
 
 	if (size <= 0)
-	       _putchar('\n');	
-	for (height = 0; height < size; height++)
+		_putchar('\n');
+	for (i = 0; i < size; i++)
 	{
-		for (width = 0; width < (size); width++)
+		for (j = 0; j < (size); j++)
+		{
 			_putchar('#');
+		}
 		_putchar('\n');
 	}
 }
