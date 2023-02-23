@@ -8,13 +8,13 @@
 
 void print_square(int size)
 {
-	int height, width;
+	int h, w;
 
 	if (size <= 0)
 	       _putchar('\n');	
-	for (height = 0; height < size; height++)
+	for (h = 0; h < size; h++)
 	{
-		for (width = 0; height < (size); width++)
+		for (w = 0; w < (size); w++)
 		{
 			_putchar('#');
 		}
