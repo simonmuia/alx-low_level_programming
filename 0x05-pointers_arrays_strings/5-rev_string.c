@@ -21,6 +21,3 @@ void rev_string(char *s)
 		s[count] = revchar;
 	}
 }
-
-
-		
