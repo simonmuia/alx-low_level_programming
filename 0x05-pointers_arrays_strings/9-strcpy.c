@@ -4,6 +4,7 @@
  * *_strcpy - copies string data
  * @dest: pointer to org string
  * @src: original string data.
+ * Return: returns dest array
  */
 
 char *_strcpy(char *dest, char *src)
