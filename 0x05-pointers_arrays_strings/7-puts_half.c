@@ -9,7 +9,7 @@ void puts_half(char *str)
 {
 	int count, arrcount;
 	
-	while (str[count]/2 != '\0')
+	while (str[count]!= '\0')
 		count++;
 	if (count + 1 % 2 != '0')
 		arrcount = (count - 1) / 2;
