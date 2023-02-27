@@ -27,6 +27,6 @@ int _atoi(char *s)
 			break;
 		count++;
 	}
-	numint *=mint;
+	numint *= mint;
 	return (numint);
 }
