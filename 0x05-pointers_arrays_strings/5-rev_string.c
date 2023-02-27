@@ -11,7 +11,7 @@ void rev_string(char *s)
 	int i, count = 0;
 	char revchar = s[0]; /** reversed character  */
 
-	while ( s[count] != '\0')
+	while (s[count] != '\0')
 		count++;
 	for (i = 0; i < count; i++)
 	{
