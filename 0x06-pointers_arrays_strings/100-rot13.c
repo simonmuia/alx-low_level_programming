@@ -8,16 +8,20 @@
  */
 char *rot13(char *s)
 {
-	int i = 0;
+	int i, j;
+	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	while (*(s + i))
+	for (i = 0; *(s + i); i++)
 	{
-		(*(s + i) >= 'a' && *(s + i) <= 'z') ?
-			(*(s + i) = (*(s + i) - 'a' + 13) % 26 + 'a') :
-			((*(s + i) >= 'A' && *(s + i) <= 'Z') ?
-			 (*(s + i) = (*(s + i) - 'A' + 13) % 26 + 'A') :
-			 (*(s + i)));
-		i++;
+		for (j = 0; j < 52; j++)
+		{
+			if (a[j] == *(s + i))
+			{
+				*(s + i) = b[j];
+				break;
+			}
+		}
 	}
 
 	return (s);
