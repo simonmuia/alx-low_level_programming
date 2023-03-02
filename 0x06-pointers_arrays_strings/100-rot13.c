@@ -3,6 +3,7 @@
 /**
  * rot13 - Encodes a string using the rot13 algorithm
  * @s: Pointer to string to be encoded
+ *
  * Return: Pointer to encoded string
  */
 char *rot13(char *s)
@@ -11,17 +12,13 @@ char *rot13(char *s)
 
 	while (*(s + i))
 	{
-		if ((*(s + i) >= 'a' && *(s + i) <= 'm') ||
-				(*(s + i) >= 'A' && *(s + i) <= 'M'))
-		{
-			*(s + i) += 13;
-		}
-		else if ((*(s + i) >= 'n' && *(s + i) <= 'z') ||
-				(*(s + i) >= 'N' && *(s + i) <= 'Z'))
-		{
-			*(s + i) -= 13;
-		}
+		(*(s + i) >= 'a' && *(s + i) <= 'z') ?
+			(*(s + i) = (*(s + i) - 'a' + 13) % 26 + 'a') :
+			((*(s + i) >= 'A' && *(s + i) <= 'Z') ?
+			 (*(s + i) = (*(s + i) - 'A' + 13) % 26 + 'A') :
+			 (*(s + i)));
 		i++;
 	}
 
 	return (s);
+}
