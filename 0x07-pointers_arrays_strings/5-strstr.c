@@ -7,7 +7,7 @@
  * Return: NULL
  */
 
-char *_strstr( char *haystack, char *needle)
+char *_strstr(char *haystack, char *needle)
 {
 	while (*haystack != '\0')
 	{
