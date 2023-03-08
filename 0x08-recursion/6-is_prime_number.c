@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * is_prime_recursive - recursively checks if a number is prime
  * @n: the number to check
