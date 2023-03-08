@@ -1,4 +1,8 @@
 #include "main.h"
+
+int is_palindrome_recursive(char *s, int start, int end);
+int _strlen_recursion(char *s);
+
 /**
  * is_palindrome_recursive - recursively checks if a string is a palindrome
  * @s: the string to check
@@ -14,7 +18,7 @@ int is_palindrome_recursive(char *s, int start, int end)
 		return (1);
 
 	/* recursive case */
-	if (s[start] != s[end])
+	if (*(s + start) != *(s + end - 1))
 		return (0);
 	else
 		return (is_palindrome_recursive(s, start + 1, end - 1));
