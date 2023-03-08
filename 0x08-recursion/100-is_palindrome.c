@@ -21,6 +21,19 @@ int is_palindrome_recursive(char *s, int start, int end)
 }
 
 /**
+ * _strlen_recursion - returns the length of a string
+ * @s: string to calculate the length of
+ *
+ * Return: length of the string
+ */
+int _strlen_recursion(char *s)
+{
+	if (*s == '\0')
+		return (0);
+	return (1 + _strlen_recursion(s + 1));
+}
+
+/**
  * is_palindrome - checks if a string is a palindrome using recursion
  * @s: the string to check
  *
@@ -28,12 +41,8 @@ int is_palindrome_recursive(char *s, int start, int end)
  */
 int is_palindrome(char *s)
 {
-	int len = 0;
-
-	/* determine length of string */
-	while (s[len] != '\0')
-		len++;
-
+	if (*s == 0)
+		return (1);
 	/* call recursive function with start and end indices */
-	return (is_palindrome_recursive(s, 0, len - 1));
+	return (is_palindrome_recursive(s, 0, _strlen_recursion(s)));
 }
