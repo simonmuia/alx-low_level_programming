@@ -9,10 +9,10 @@
  * Return: 0 if successful otherwise 1.
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int i,chr, sum;
-	
+	int i, chr, sum;
+
 	if (argc == 1)
 		printf("0\n");
 	for (i = 1; i < argc; i++)
@@ -25,7 +25,7 @@ int main (int argc, char *argv[])
 				return (1);
 			}
 		}
-		sum+=atoi(argv[i]);
+		sum += atoi(argv[i]);
 	}
 	printf("%d\n", sum);
 	return (0);
