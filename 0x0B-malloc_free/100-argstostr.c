@@ -38,7 +38,7 @@ char *argstostr(int ac, char **av)
 			str[len] = av[i][j];
 			j++;
 		}
-		if (str[k] == '\0')
+		if (str[len] == '\0')
 			str[pos++] = '\n'; /* Add newline after each argument */
 	}
 	return (str);
