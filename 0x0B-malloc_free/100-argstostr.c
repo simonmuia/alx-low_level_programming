@@ -22,8 +22,8 @@ char *argstostr(int ac, char **av)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
 			len++;
-		len++; /* Account for space after each argument */
 	}
+	len += ac;
 
 	/* Allocate memory for the concatenated string */
 	str = malloc(sizeof(char) * len);
@@ -36,10 +36,10 @@ char *argstostr(int ac, char **av)
 		for (j = 0; av[i][j] != '\0'; j++)
 		{
 			str[pos++] = av[i][j];
+			j++;
 		}
-		str[pos++] = '\n'; /* Add newline after each argument */
+		if (str[k] == '\0')
+			str[pos++] = '\n'; /* Add newline after each argument */
 	}
-	str[len - 1] = '\0'; /* Add null terminator at the end */
-
 	return (str);
 }
