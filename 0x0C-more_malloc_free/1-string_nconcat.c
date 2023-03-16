@@ -11,7 +11,7 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i, str1_len = 0, str2_len = 0;
-	char *ptr = NULL;
+	char *ptr;
 
 	/*find length of two strings*/
 	for (i = 0; s1[i] != '\0'; i++)
@@ -19,20 +19,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (i = 0; s2[i] != '\0'; i++)
 		str2_len++;
 
-	/*Assign values for null arrays on s1 and s2*/
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-
 	/* use s2 if n is greater than or equal to s2*/
-	if (n < str2_len)
+	if (n >= str2_len)
 	{
-		ptr = malloc((str1_len + n + 1) * sizeof(char));
+		ptr = malloc(sizeof(char) * (str1_len + str2_len + 1));
 	}
 
 	/* Assign memory to concatenated strings */
-	ptr = malloc(((str1_len + str2_len) * sizeof(char) + 1));
+	ptr = malloc(sizeof(char) * (str1_len + n + 1));
+	str2_len = n;
 
 	/* Return null if string is null*/
 	if (ptr == NULL)
@@ -41,13 +36,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (i = 0; i < str1_len; i++)
 	{
 		ptr[i] = s1[i];
-		str1_len = i;
 	}
-	for (i = 0; i < str2_len; i++, str1_len++)
+	for (i = 0; i < str1_len + str2_len; i++)
 	{
-		ptr[str1_len] = s2[i];
-		ptr[str1_len] = '\0';
+		ptr[str1_len] = s2[i + str1_len];
 	}
+	ptr[i] = '\0';
 	return (ptr);
 }
-
