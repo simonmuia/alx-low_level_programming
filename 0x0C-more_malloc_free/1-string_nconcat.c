@@ -10,13 +10,13 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, str1_len = 0, str2_len = 0;
 	char *ptr;
+	unsigned int i = 0, str1_len = 0, str2_len = 0;
 
 	/*find length of two strings*/
-	for (i = 0; s1[i] != '\0'; i++)
+	while  (s1 && s1[str1_len])
 		str1_len++;
-	for (i = 0; s2[i] != '\0'; i++)
+	while (s2 && s2[str2_len])
 		str2_len++;
 
 	/* use s2 if n is greater than or equal to s2*/
@@ -33,13 +33,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (ptr == NULL)
 		return (NULL);
 	/* Iterate through s1 and concatenate to s2*/
-	for (i = 0; i < str1_len; i++)
+	while (i < str1_len)
 	{
 		ptr[i] = s1[i];
+		i++;
 	}
-	for (i = 0; i < str1_len + str2_len; i++)
+
+	while (i < str1_len + str2_len)
 	{
 		ptr[i] = s2[i - str1_len];
+		i++;
 	}
 	ptr[i] = '\0';
 	return (ptr);
