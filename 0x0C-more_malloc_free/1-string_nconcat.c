@@ -38,8 +38,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (ptr == NULL)
 		return (NULL);
 	/* Iterate through s1 and concatenate to s2*/
-	for (i = 0; s1[i] < str1_len; i++)
+	for (i = 0; i < str1_len; i++)
 	{
-		s2[str2_len + 1] = s1[str1_len];
+		ptr[i] = s1[i];
+		str1_len = i;
 	}
+	for (i = 0; i < str2_len; i++, str1_len++)
+	{
+		ptr[str1_len] = s2[i];
+		ptr[str1_len] = '\0';
+	}
+	return (ptr);
 }
+
