@@ -28,11 +28,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	/* use s2 if n is greater than or equal to s2*/
 	if (n < str2_len)
 	{
-		str2_len = n;
+		ptr = malloc((str1_len + n + 1) * sizeof(char));
 	}
 
 	/* Assign memory to concatenated strings */
-	ptr = malloc(((str1_len + str2_len + n) * sizeof(char) + 1));
+	ptr = malloc(((str1_len + str2_len) * sizeof(char) + 1));
 
 	/* Return null if string is null*/
 	if (ptr == NULL)
