@@ -20,7 +20,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 	/* Return NULL if node is empty */
 	if (new == NULL)
 		return (NULL);
-	
+
 	/* Assign new element a number */
 	new->n = n;
 	new->next = NULL;
@@ -36,7 +36,6 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 			temp = temp->next;
 		}
 		temp->next = new;
-		
 	}
 
 	return (*head);
