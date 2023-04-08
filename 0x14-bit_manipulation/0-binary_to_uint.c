@@ -26,7 +26,7 @@ unsigned int binary_to_uint(const char *b)
 		i++;
 	}
 
-	if (convNum == 0)
+	if (b == NULL)
 		return (0);
 
 	return (convNum);
