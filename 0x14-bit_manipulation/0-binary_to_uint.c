@@ -22,7 +22,7 @@ unsigned int binary_to_uint(const char *b)
 	for (str_len = 0; b[str_len] != '\0'; str_len++)
 		;
 	/*convert input to unsigned int*/
-	while (i >= 0)
+	while (i < b[i])
 	{
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
