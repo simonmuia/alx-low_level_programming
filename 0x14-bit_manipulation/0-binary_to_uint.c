@@ -28,7 +28,7 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		if (str_len & 1)
 			convNum += 1 << (str_len - i - 1);
-		i++;
+		i--;
 	}
 
 	return (convNum);
