@@ -288,9 +288,9 @@ void elf_close_handler(int elf)
  * @argv: array of string arguments
  * Return: Always 0 (Success)
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int fd = -1;
+	int file_dir = -1;
 	Elf64_Ehdr header;
 
 	if (argc != 2)
@@ -299,17 +299,17 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
+	file_dir = open(argv[1], O_RDONLY);
+	if (file_dir == -1)
 	{
 		perror("Error: Can't open file");
 		exit(98);
 	}
 
-	if (read(fd, &header, sizeof(header)) != sizeof(header))
+	if (read(file_dir, &header, sizeof(header)) != sizeof(header))
 	{
 		perror("Error: Can't read ELF header");
-		elf_close_handler(fd);
+		elf_close_handler(file_dir);
 		exit(98);
 	}
 
@@ -324,7 +324,7 @@ int main(int argc, char *argv[])
 	elf_type_handler(header.e_type, header.e_ident);
 	elf_entry_handler(header.e_entry, header.e_ident);
 
-	elf_close_handler(fd);
+	elf_close_handler(file_dir);
 
 	return (0);
 }
