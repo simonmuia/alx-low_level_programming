@@ -52,7 +52,7 @@ void elf_checker(unsigned char *e_ident)
  * @e_ident: Pointer to an array of characters.
  *
  * Description:
- * This function prints the magic number of an ELF file in 
+ * This function prints the magic number of an ELF file in
  * hexadecimal format.
  *
  * Return:
