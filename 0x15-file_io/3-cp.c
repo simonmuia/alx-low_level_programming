@@ -33,7 +33,7 @@ void error_handler(int source_file, int dest_file, char *argv[])
 int main(int argc, char *argv[])
 {
 	int source_file, dest_file, close_error_handler;
-	ssize_t nchars, nwr;
+	ssize_t num_chars, ofile;
 	char buf[1024];
 
 	if (argc != 3)
@@ -48,13 +48,13 @@ int main(int argc, char *argv[])
 
 	do
 	{
-		nchars = read(source_file, buf, 1024);
-		if (nchars == -1)
+		num_chars = read(source_file, buf, 1024);
+		if (num_chars == -1)
 			error_handler(-1, 0, argv);
-		nwr = write(dest_file, buf, nchars);
-		if (nwr == -1)
+		ofile = write(dest_file, buf, num_chars);
+		if (ofile == -1)
 			error_handler(0, -1, argv);
-	} while (nchars == 1024);
+	} while (num_chars == 1024);
 
 	close_error_handler = close(source_file);
 	if (close_error_handler == -1)
