@@ -277,7 +277,9 @@ void elf_entry_handler(unsigned long int e_entry, unsigned char *e_ident)
  */
 void elf_close_handler(int elf)
 {
-	close(elf) == -1 ? (dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", elf), exit(98)) : (void)elf;
+	close(elf) == -1 ? 
+	(dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", elf), exit(98)) :
+	(void)elf;
 }
 
 /**
