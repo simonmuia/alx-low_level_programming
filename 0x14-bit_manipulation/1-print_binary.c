@@ -8,16 +8,28 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int temp;
+	unsigned long int temp_n = n;
+	int num_bits = 0, shift = 0;
 
-	temp = 1UL << (sizeof(unsigned long int) * 8 - 1);
-
-	while (temp > 0)
+	if (n == 0)
 	{
-		if (n & temp)
-			_putchar("1");
+		printf("0");
+		return;
+	}
+
+	while (temp_n > 0)
+	{
+		temp_n >>= 1;
+		num_bits++;
+	}
+
+	while (num_bits > 0)
+	{
+		shift = num_bits - 1;
+		if ((n >> shift) & 1)
+			printf("1");
 		else
-			_putchar("0");
-		temp >>= 1;
+			printf("0");
+		num_bits--;
 	}
 }
