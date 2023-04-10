@@ -290,41 +290,43 @@ void elf_close_handler(int elf)
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int file_dir = -1;
-	Elf64_Ehdr header;
+	Elf64_Ehdr *header;
+	int o, r;
 
-	if (argc != 2)
+	o = open(argv[1], O_RDONLY);
+	if (o == -1)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s elf_file\n", argv[0]);
-		exit(1);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
 	}
-
-	file_dir = open(argv[1], O_RDONLY);
-	if (file_dir == -1)
+	header = malloc(sizeof(Elf64_Ehdr));
+	if (header == NULL)
 	{
-		perror("Error: Can't open file");
+		close_elf(o);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
+	}
+	r = read(o, header, sizeof(Elf64_Ehdr));
+	if (r == -1)
+	{
+		free(header);
+		close_elf(o);
+		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
 
-	if (read(file_dir, &header, sizeof(header)) != sizeof(header))
-	{
-		perror("Error: Can't read ELF header");
-		elf_close_handler(file_dir);
-		exit(98);
-	}
-
-	elf_checker(header.e_ident);
+	check_elf(header->e_ident);
 	printf("ELF Header:\n");
-	magic_handler(header.e_ident);
-	class_handler(header.e_ident);
-	data_handler(header.e_ident);
-	elf_version_handler(header.e_ident);
-	elf_osabi_handler(header.e_ident);
-	elf_abi_handler(header.e_ident);
-	elf_type_handler(header.e_type, header.e_ident);
-	elf_entry_handler(header.e_entry, header.e_ident);
+	print_magic(header->e_ident);
+	print_class(header->e_ident);
+	print_data(header->e_ident);
+	print_version(header->e_ident);
+	print_osabi(header->e_ident);
+	print_abi(header->e_ident);
+	print_type(header->e_type, header->e_ident);
+	print_entry(header->e_entry, header->e_ident);
 
-	elf_close_handler(file_dir);
-
+	free(header);
+	close_elf(o);
 	return (0);
 }
