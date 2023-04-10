@@ -22,8 +22,8 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		str_len++;
 	}
-	
-	str_len --;
+
+	str_len--;
 
 	while (str_len >= 0)
 	{
@@ -34,5 +34,5 @@ unsigned int binary_to_uint(const char *b)
 	}
 
 	return (convNum);
-	
+
 }
