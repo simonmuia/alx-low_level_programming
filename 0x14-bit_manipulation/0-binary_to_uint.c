@@ -9,28 +9,30 @@
 unsigned int binary_to_uint(const char *b)
 {
 	/* Initialize results and iterator*/
-	unsigned int convNum = 0;
-	int str_len, i;
+	unsigned int convNum = 0, base = 1;
+	int str_len = 0;
 
 	if (!b)
 		return (0);
 
 	/* find string length */
-	for (str_len = 0; b[str_len] != '\0'; str_len++)
-		;
-
-	for (str_len--, i = 1; str_len >= 0; str_len--, i *= 2)
+	while (b[str_len] != '\0')
 	{
 		if (b[str_len] != '0' && b[str_len] != '1')
-		{
 			return (0);
-		}
+		str_len++;
+	}
+	
+	str_len --;
 
-		if (b[str_len] & 1)
-		{
-			convNum += i;
-		}
+	while (str_len >= 0)
+	{
+		if (b[str_len] == '1')
+			convNum += base;
+		base *= 2;
+		str_len--;
 	}
 
 	return (convNum);
+	
 }
