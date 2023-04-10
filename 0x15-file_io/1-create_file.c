@@ -16,17 +16,17 @@ int create_file(const char *filename, char *text_content)
 
 	if (file == -1)
 		return (-1);
-	
+
 	if (!text_content)
 		text_content = "";
-	
+
 	for (num_lets = 0; text_content[num_lets]; num_lets++)
 		;
 	file_write = write(filename, text_content, num_lets);
 
 	if (file_write == -1)
 		return (-1);
-	
+
 	close(file);
 	return (1);
 }
