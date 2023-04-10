@@ -32,7 +32,7 @@ void error_handler(int file_from, int file_to, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, close_error_handler;
+	int source_file, dest_file, close_error_handler;
 	ssize_t nchars, nwr;
 	char buf[1024];
 
@@ -42,31 +42,31 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	file_from = open(argv[1], O_RDONLY);
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	error_handler(file_from, file_to, argv);
+	source_file = open(argv[1], O_RDONLY);
+	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	error_handler(source_file, dest_file, argv);
 
 	do
 	{
-		nchars = read(file_from, buf, 1024);
+		nchars = read(source_file, buf, 1024);
 		if (nchars == -1)
 			error_handler(-1, 0, argv);
-		nwr = write(file_to, buf, nchars);
+		nwr = write(dest_file, buf, nchars);
 		if (nwr == -1)
 			error_handler(0, -1, argv);
 	} while (nchars == 1024);
 
-	close_error_handler = close(file_from);
+	close_error_handler = close(source_file);
 	if (close_error_handler == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source_file);
 		exit(100);
 	}
 
-	close_error_handler = close(file_to);
+	close_error_handler = close(dest_file);
 	if (close_error_handler == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source_file);
 		exit(100);
 	}
 
