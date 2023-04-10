@@ -3,8 +3,8 @@
 
 /**
  * error_handler - checks if files can be opened.
- * @file_from: file_from.
- * @file_to: file_to.
+ * @source_file: file_from.
+ * @dest_file: file_to.
  * @argv: arguments vector.
  *
  * Return: no return.
@@ -46,8 +46,7 @@ int main(int argc, char *argv[])
 	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_handler(source_file, dest_file, argv);
 
-	do
-	{
+	do {
 		num_chars = read(source_file, buf, 1024);
 		if (num_chars == -1)
 			error_handler(-1, 0, argv);
