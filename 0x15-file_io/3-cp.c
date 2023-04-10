@@ -9,14 +9,14 @@
  *
  * Return: no return.
  */
-void error_handler(int file_from, int file_to, char *argv[])
+void error_handler(int source_file, int dest_file, char *argv[])
 {
-	if (file_from == -1)
+	if (source_file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	if (file_to == -1)
+	if (dest_file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
