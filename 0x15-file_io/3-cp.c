@@ -31,7 +31,7 @@ void error_handler(int source_file, int dest_file, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int source_file, dest_file, close_err_handler;
+	int source_file, file_to, close_err_handler;
 	ssize_t num_c, file_write;
 	char *buf[1024];
 
@@ -40,17 +40,16 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	source_file= open(argv[1], O_RDONLY);
-	dest_file = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	num_c = 1024;
-	error_handler(source_file, dest_file, argv);
 
-	while (num_c == 1024)
+	source_file= open(argv[1], O_RDONLY);
+	
+
+	for (num_c = 1024; num_c == 1024;)
 	{
 		num_c = read(source_file, buf, 1024);
 		if (num_c == -1)
 			error_handler(-1, 0, argv);
-		file_write = write(dest_file, buf, num_c);
+		file_write = write(file_to, buf, num_c);
 		if (file_write == -1)
 			error_handler(0, -1, argv);
 	}
@@ -62,7 +61,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	close_err_handler = close(dest_file);
+	close_err_handler = close(file_to);
 	if (close_err_handler == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close _file %d\n", source_file);
