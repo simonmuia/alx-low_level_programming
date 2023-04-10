@@ -13,7 +13,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	/* Initialize results and iterator*/
 	unsigned int convNum = 0;
-	int i = 0, str_len = 1;
+	int str_len , i;
 
 	if (b == NULL)
 		return (0);
@@ -23,16 +23,16 @@ unsigned int binary_to_uint(const char *b)
 		;
 	
 	/*convert input to unsigned int*/
-	for (i--, str_len = 1; i >= 0; i--, str_len *= 2)
+	for (str_len--, i = 1; str_len >= 0; str_len--, i *= 2)
 	{
-		if (b[i] != '0' && b[i] != '1')
+		if (b[str_len] != '0' && b[str_len] != '1')
 		{
 			return (0);
 		}
 
-		if (b[i] & 1)
+		if (b[str_len] & 1)
 		{
-			convNum += str_len;
+			convNum += i;
 		}
 	}
 
