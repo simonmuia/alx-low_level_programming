@@ -6,7 +6,7 @@
  * @source_file: source file
  * @argv: arguments array
  * Return: void
-*/
+ */
 
 void error_handler(int source_file, int dest_file, char *argv[])
 {
@@ -27,8 +27,8 @@ void error_handler(int source_file, int dest_file, char *argv[])
  * @argc: number of arguments
  * @argv: array of arguments
  * Return: 0
-*/
-int main (int argc, char *argv[])
+ */
+int main(int argc, char *argv[])
 {
 	int file_from, file_to, close_err_handler;
 	ssize_t num_c, file_write;
@@ -36,7 +36,7 @@ int main (int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf (STDERR_FILENO, "%s\n", "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -52,13 +52,12 @@ int main (int argc, char *argv[])
 		file_write = write(file_to, buffer, num_c);
 		if (file_write == -1)
 			error_handler(0, -1, argv);
-
 	}
 
 	close_err_handler = close(file_from);
 	if (close_err_handler == -1)
 	{
-		dprintf (STDERR_FILENO, "Error: Can't close _file %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close _file %d\n", file_from);
 		exit(100);
 	}
 
