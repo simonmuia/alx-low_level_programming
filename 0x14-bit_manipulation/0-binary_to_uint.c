@@ -8,12 +8,14 @@
 
 unsigned int binary_to_uint(const char *b)
 {
+	/* Initialize results and iterator*/
 	unsigned int convNum = 0;
 	int str_len, i;
 
 	if (!b)
 		return (0);
 
+	/* find string length */
 	for (str_len = 0; b[str_len] != '\0'; str_len++)
 		;
 
