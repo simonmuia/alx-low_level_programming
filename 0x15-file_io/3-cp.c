@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 {
 	int source_file, file_to, close_err_handler;
 	ssize_t num_c, file_write;
-	char *buf[1024];
+	char buf[1024];
 
 	if (argc != 3)
 	{
