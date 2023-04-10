@@ -10,6 +10,7 @@
 
 void error_handler(int source_file, int dest_file, char *argv[])
 {
+
 	if (source_file == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n ", argv[1]);
@@ -31,16 +32,14 @@ void error_handler(int source_file, int dest_file, char *argv[])
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, close_err_handler;
-	ssize_t num_c, file_write;
-	char *buf;
+	ssize_t num_c = 1024, file_write;
+	char *buf[1024];
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
-	buf = create_buffer(argv[2]);
 	file_from = open(argv[1], O_RDONLY);
 	file_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
