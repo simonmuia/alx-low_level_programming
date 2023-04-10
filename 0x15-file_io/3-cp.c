@@ -8,12 +8,12 @@
  * Return: void
  */
 
-void error_handler(int source_file, int dest_file, char *argv[])
+void error_handler(int file_from, int file_to, char *argv[])
 {
 
-	if (source_file == -1)
+	if (file_from == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
-	if (dest_file == -1)
+	if (file_to == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 }
 
@@ -25,20 +25,20 @@ void error_handler(int source_file, int dest_file, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int source_file, file_to, close_err_handler;
+	int file_from, file_to, close_err_handler;
 	ssize_t num_c, file_write;
 	char buf[1024];
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 
-	source_file = open(argv[1], O_RDONLY), error_handler(source_file, -1, argv);
+	file_from = open(argv[1], O_RDONLY), error_handler(file_from, -1, argv);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664), error_handler(-1, file_to, argv);
 
-	while ((num_c = read(source_file, buf, 1024)))
+	while ((num_c = read(file_from, buf, 1024)))
 		num_c == -1 ? error_handler(-1, 0, argv) : write(file_to, buf, num_c) == -1 ? error_handler(0, -1, argv) : (void)0;
 
-	close_err_handler = close(source_file), close_err_handler == -1 ? dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source_file), exit(100) : (void)0;
+	close_err_handler = close(file_from), close_err_handler == -1 ? dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100) : (void)0;
 	close_err_handler = close(file_to), close_err_handler == -1 ? dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100) : (void)0;
 
 	return (0);
