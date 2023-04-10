@@ -15,7 +15,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int convNum = 0;
 	int str_len, i;
 
-	if (b == NULL)
+	if (!b)
 		return (0);
 
 	/* find string length */
