@@ -20,8 +20,7 @@ void elf_checker(unsigned char *e_ident)
 {
 	int i = 0;
 
-	do
-	{
+	do {
 		if (e_ident[i] != 127 &&
 			e_ident[i] != 'E' &&
 			e_ident[i] != 'L' &&
