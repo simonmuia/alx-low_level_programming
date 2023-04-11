@@ -283,26 +283,28 @@ void elf_close_handler(int el_fdesc)
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int file_dir = -1;
+	int open_file, r;
 	Elf64_Ehdr *header;
 
-	if (argc != 2)
+	open_file = open(argv[1], O_RDONLY);
+	if (open_file == -1)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s elf_file\n", argv[0]);
-		exit(1);
-	}
-
-	file_dir = open(argv[1], O_RDONLY);
-	if (file_dir == -1)
-	{
-		perror("Error: Can't open file");
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-
-	if (read(file_dir, &header, sizeof(header)) != sizeof(header))
+	header = malloc(sizeof(Elf64_Ehdr));
+	if (header == NULL)
 	{
-		perror("Error: Can't read ELF header");
-		elf_close_handler(file_dir);
+		elf_close_handler(open_file);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
+	}
+	r = read(open_file, header, sizeof(Elf64_Ehdr));
+	if (r == -1)
+	{
+		free(header);
+		elf_close_handler(open_file);
+		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
 
