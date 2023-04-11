@@ -283,7 +283,7 @@ void elf_close_handler(int el_fdesc)
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int open_file, r;
+	int open_file, read_file;
 	Elf64_Ehdr *header;
 
 	open_file = open(argv[1], O_RDONLY);
@@ -299,8 +299,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-	r = read(open_file, header, sizeof(Elf64_Ehdr));
-	if (r == -1)
+	read_file = read(open_file, header, sizeof(Elf64_Ehdr));
+	if (read_file == -1)
 	{
 		free(header);
 		elf_close_handler(open_file);
