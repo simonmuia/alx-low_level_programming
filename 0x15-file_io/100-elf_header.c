@@ -319,7 +319,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	elf_type_handler(header->e_type, header->e_ident);
 	elf_entry_handler(header->e_entry, header->e_ident);
 
-	elf_close_handler(file_dir);
+	elf_close_handler(open_file);
 
 	return (0);
 }
