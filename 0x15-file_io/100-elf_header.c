@@ -77,7 +77,7 @@ void magic_handler(unsigned char *e_ident)
  */
 void class_handler(unsigned char *e_ident)
 {
-	printf("Class:					");
+	printf("  Class:                             ");
 
 	if (e_ident[EI_CLASS] == ELFCLASSNONE)
 		printf("none\n");
@@ -102,7 +102,7 @@ void class_handler(unsigned char *e_ident)
  */
 void data_handler(unsigned char *e_ident)
 {
-	printf("Data:					");
+	printf("  Data:                              ");
 
 	if (e_ident[EI_DATA] == ELFDATANONE)
 		printf("none\n");
@@ -243,6 +243,7 @@ void elf_entry_handler(unsigned long int e_entry, unsigned char *e_ident)
 	 * Check if the data encoding is big-endian. If so, swap the bytes of
 	 * the entry point address to little-endian byte order.
 	 */
+	printf("  Entry point address:               ");
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
