@@ -20,7 +20,8 @@ void elf_checker(unsigned char *e_ident)
 {
 	int i = 0;
 
-	do {
+	do
+	{
 		if (e_ident[i] != 127 &&
 			e_ident[i] != 'E' &&
 			e_ident[i] != 'L' &&
@@ -128,7 +129,7 @@ void data_handler(unsigned char *e_ident)
 void elf_version_handler(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
-	e_ident[EI_VERSION]);
+		   e_ident[EI_VERSION]);
 
 	if (e_ident[EI_VERSION] == EV_CURRENT)
 		printf(" (current)\n");
@@ -182,7 +183,7 @@ void elf_osabi_handler(unsigned char *e_ident)
 void elf_abi_handler(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
-	       e_ident[EI_ABIVERSION]);
+		   e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -266,9 +267,12 @@ void elf_entry_handler(unsigned long int e_entry, unsigned char *e_ident)
  */
 void elf_close_handler(int el_fdesc)
 {
-	close(el_fdesc) == -1 ?
-	(dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", el_fdesc), exit(98)) :
-	(void)el_fdesc;
+	if (close(el_fdesc) == -1)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't close fd %d\n", el_fdesc);
+		exit(98);
+	}
 }
 
 /**
