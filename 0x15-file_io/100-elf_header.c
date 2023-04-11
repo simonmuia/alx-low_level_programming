@@ -1,8 +1,5 @@
 #include "main.h"
-/*
- * File: 100-elf_header.c
- * Auth: Suara Ayomide
- */
+
 void elf_checker(unsigned char *e_ident);
 void magic_handler(unsigned char *e_ident);
 void class_handler(unsigned char *e_ident);
@@ -16,16 +13,7 @@ void elf_close_handler(int elf);
 
 /**
  * elf_checker - Checks if the provided array is an ELF file.
- *
  * @e_ident: Pointer to an array of characters.
- *
- * Description:
- *   This function checks whether the provided array of
- * characters is an ELF file or not.
- *   If it is not an ELF file, the function prints
- * an error message to the standard error
- *   stream and exits with a status code of 98.
- *
  * Return: None.
  */
 void elf_checker(unsigned char *e_ident)
@@ -139,7 +127,8 @@ void data_handler(unsigned char *e_ident)
  */
 void elf_version_handler(unsigned char *e_ident)
 {
-	printf("  Version:                           %d", e_ident[EI_VERSION]);
+	printf("  Version:                           %d",
+	e_ident[EI_VERSION]);
 
 	if (e_ident[EI_VERSION] == EV_CURRENT)
 		printf(" (current)\n");
@@ -193,7 +182,7 @@ void elf_osabi_handler(unsigned char *e_ident)
 void elf_abi_handler(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
-		   e_ident[EI_ABIVERSION]);
+	       e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -266,20 +255,20 @@ void elf_entry_handler(unsigned long int e_entry, unsigned char *e_ident)
 	 * entry point address in the appropriate format.
 	 */
 	if (e_ident[EI_CLASS] == ELFCLASS32)
-		printf("Entry point address: %#x\n", (unsigned int)e_entry);
+		printf("%#x\n", (unsigned int)e_entry);
 	else
-		printf("Entry point address: %#lx\n", e_entry);
+		printf("%#lx\n", e_entry);
 }
 
 /**
  * elf_close_handler - Closes ELF file descriptor.
- * @elf: ELF file descriptor.
+ * @el_fdesc: ELF file descriptor.
  */
-void elf_close_handler(int elf)
+void elf_close_handler(int el_fdesc)
 {
-	close(elf) == -1 ?
-	(dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", elf), exit(98)) :
-	(void)elf;
+	close(el_fdesc) == -1 ?
+	(dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", el_fdesc), exit(98)) :
+	(void)el_fdesc;
 }
 
 /**
@@ -288,10 +277,10 @@ void elf_close_handler(int elf)
  * @argv: array of string arguments
  * Return: Always 0 (Success)
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int file_dir = -1;
-	Elf64_Ehdr header;
+	Elf64_Ehdr *header;
 
 	if (argc != 2)
 	{
@@ -313,16 +302,16 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	elf_checker(header.e_ident);
+	elf_checker(header->e_ident);
 	printf("ELF Header:\n");
-	magic_handler(header.e_ident);
-	class_handler(header.e_ident);
-	data_handler(header.e_ident);
-	elf_version_handler(header.e_ident);
-	elf_osabi_handler(header.e_ident);
-	elf_abi_handler(header.e_ident);
-	elf_type_handler(header.e_type, header.e_ident);
-	elf_entry_handler(header.e_entry, header.e_ident);
+	magic_handler(header->e_ident);
+	class_handler(header->e_ident);
+	data_handler(header->e_ident);
+	elf_version_handler(header->e_ident);
+	elf_osabi_handler(header->e_ident);
+	elf_abi_handler(header->e_ident);
+	elf_type_handler(header->e_type, header->e_ident);
+	elf_entry_handler(header->e_entry, header->e_ident);
 
 	elf_close_handler(file_dir);
 
